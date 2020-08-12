@@ -1,0 +1,174 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object ListView1: TListView
+    ItemAppearanceClassName = 'TListItemRightDetailAppearance'
+    ItemEditAppearanceClassName = 'TListItemRightDetailDeleteAppearance'
+    HeaderAppearanceClassName = 'TListHeaderObjects'
+    FooterAppearanceClassName = 'TListHeaderObjects'
+    Position.X = 8.000000000000000000
+    Position.Y = 40.000000000000000000
+    Size.Width = 225.000000000000000000
+    Size.Height = 425.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    OnChange = ListView1Change
+  end
+  object Departamentos: TButton
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 225.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Departamentos'
+    OnClick = DepartamentosClick
+  end
+  object StringGrid1: TStringGrid
+    Position.X = 248.000000000000000000
+    Position.Y = 40.000000000000000000
+    Size.Width = 377.000000000000000000
+    Size.Height = 177.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 9
+    RowCount = 100
+    RowHeight = 21.000000000000000000
+  end
+  object StringGrid2: TStringGrid
+    Position.X = 248.000000000000000000
+    Position.Y = 232.000000000000000000
+    Size.Width = 377.000000000000000000
+    Size.Height = 233.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    RowCount = 100
+    RowHeight = 21.000000000000000000
+  end
+  object Button1: TButton
+    Position.X = 248.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 28
+    Text = 'Apply Updates'
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Position.X = 400.000000000000000000
+    Position.Y = 8.000000000000000000
+    TabOrder = 29
+    Text = 'Atualizar'
+    OnClick = Button2Click
+  end
+  object fdmemDepartamentos: TFDMemTable
+    FieldDefs = <
+      item
+        Name = 'DEPARTMENT'
+      end
+      item
+        Name = 'DEPT_NO'
+      end>
+    IndexDefs = <>
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
+    AutoCommitUpdates = False
+    StoreDefs = True
+    Left = 104
+    Top = 48
+  end
+  object fdmemDepartamento: TFDMemTable
+    CachedUpdates = True
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
+    AutoCommitUpdates = False
+    Left = 336
+    Top = 72
+  end
+  object fdmemFuncionario: TFDMemTable
+    CachedUpdates = True
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
+    AutoCommitUpdates = False
+    Left = 336
+    Top = 264
+  end
+  object BindDepartamentos: TBindSourceDB
+    DataSet = fdmemDepartamentos
+    ScopeMappings = <>
+    Left = 104
+    Top = 104
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 104
+    Top = 157
+    object LinkFillControlToField1: TLinkFillControlToField
+      Category = 'Quick Bindings'
+      Control = ListView1
+      Track = True
+      FillDataSource = BindDepartamentos
+      FillDisplayFieldName = 'DEPARTMENT'
+      AutoFill = True
+      FillExpressions = <
+        item
+          SourceMemberName = 'DEPT_NO'
+          ControlMemberName = 'Detail'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      GridControl = StringGrid1
+      Columns = <>
+    end
+    object LinkGridToDataSourceBindSourceDB3: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB3
+      GridControl = StringGrid2
+      Columns = <>
+    end
+  end
+  object FDStanStorageJSONLink1: TFDStanStorageJSONLink
+    Left = 104
+    Top = 416
+  end
+  object FDStanStorageBinLink1: TFDStanStorageBinLink
+    Left = 104
+    Top = 368
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = fdmemDepartamento
+    ScopeMappings = <>
+    Left = 336
+    Top = 128
+  end
+  object BindSourceDB3: TBindSourceDB
+    DataSet = fdmemFuncionario
+    ScopeMappings = <>
+    Left = 336
+    Top = 320
+  end
+end
