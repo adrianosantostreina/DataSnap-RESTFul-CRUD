@@ -7,3 +7,7 @@ Você também aprenderá outros segredos do DataSnap RESTFul, tais como: publica
  
 
 http://adrianosantostreina.com.br/datasnaprestful
+
+# Vídeo-Aula no YouTube
+[![Watch the video](http://tdevrocks.gpages.com.br/files/sites/15018/2020/08/Captura-de-tela-12-08-2020-17.33.24.png)](https://www.youtube.com/watch?v=llszNXdNFN4&t=103s)
+
